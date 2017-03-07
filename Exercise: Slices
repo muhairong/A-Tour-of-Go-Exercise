@@ -1,0 +1,24 @@
+//Exercise: Slices
+
+package main
+
+import "golang.org/x/tour/pic"
+
+func Pic(dx, dy int) [][]uint8 {
+	a := make([][]uint8, dy)
+	for x := range a {
+		b := make([]uint8, dx)
+		for y := range b {
+      //different functions show different pictures
+      //x^y is the most beautiful one
+      //other funtions include (x+y)/2 and x*y
+			b[y] = uint8(x^y)
+		}
+		a[x] = b
+	}
+	return a
+}
+
+func main() {
+	pic.Show(Pic)
+}
